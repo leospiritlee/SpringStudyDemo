@@ -24,4 +24,34 @@
         <property name="blood" value="15"/>
     </bean>
 
+    <bean id="poison1" class="com.leospiritlee.demo2.Medicine">
+        <property name="name" value="poison1"/>
+        <property name="blood" value="-10"/>
+    </bean>
+
+    <bean id="poison2" class="com.leospiritlee.demo2.Medicine">
+        <property name="name" value="poison2"/>
+        <property name="blood" value="-15"/>
+    </bean>
+
+    <bean id="medicineBox" class="com.leospiritlee.demo2.MedicineBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="poisonBox" class="com.leospiritlee.demo2.PoisonBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="poison1"/>
+                <ref bean="poison2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="nullBox" class="com.leospiritlee.demo2.NullBox"/>
+
 </beans>

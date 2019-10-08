@@ -1,11 +1,11 @@
 package com.leospiritlee.demo2.test;
 
+import com.google.common.collect.Lists;
 import com.leospiritlee.demo2.facade.Goods;
 import com.leospiritlee.demo2.Medicine;
 import com.leospiritlee.demo2.Role;
 import com.leospiritlee.demo2.RolePrintUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +22,7 @@ public class TestGameInitByOld {
         role.setName("Mary");
         role.setHealth(100);
 
-        List<Goods> goodsList = new ArrayList<>();
+        List<Goods> goodsList = Lists.newArrayList();
 
         Medicine medicine1 = new Medicine();
         medicine1.setBlood(10);
