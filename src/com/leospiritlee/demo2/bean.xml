@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="role" class="com.leospiritlee.demo2.Role">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="medicine1" class="com.leospiritlee.demo2.Medicine">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+    </bean>
+
+    <bean id="medicine2" class="com.leospiritlee.demo2.Medicine">
+        <property name="name" value="medicine2"/>
+        <property name="blood" value="15"/>
+    </bean>
+
+</beans>
