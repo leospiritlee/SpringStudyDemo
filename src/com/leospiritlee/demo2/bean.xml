@@ -54,4 +54,23 @@
 
     <bean id="nullBox" class="com.leospiritlee.demo2.NullBox"/>
 
+    <bean id="medicineBoxByConstructor" class="com.leospiritlee.demo2.MedicineBoxByConstructor">
+        <constructor-arg>
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="poisonBoxByConstructor" class="com.leospiritlee.demo2.PoisonBoxByConstructor">
+        <constructor-arg>
+            <list>
+                <ref bean="poison1"/>
+                <ref bean="poison2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
 </beans>
