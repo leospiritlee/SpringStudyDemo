@@ -1,12 +1,11 @@
-package com.leospiritlee.demo2.test;
+package com.leospiritlee.demo2.game.test;
 
 import com.google.common.collect.Lists;
-import com.leospiritlee.demo2.BoxPrintUtil;
-import com.leospiritlee.demo2.MedicineBoxByConstructor;
-import com.leospiritlee.demo2.NullBox;
-import com.leospiritlee.demo2.PoisonBoxByConstructor;
-import com.leospiritlee.demo2.facade.Box;
-import com.leospiritlee.demo2.facade.Goods;
+import com.leospiritlee.demo2.game.BoxPrintUtil;
+import com.leospiritlee.demo2.game.MedicineBoxByConstructor;
+import com.leospiritlee.demo2.game.NullBox;
+import com.leospiritlee.demo2.game.PoisonBoxByConstructor;
+import com.leospiritlee.demo2.game.facade.Box;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -25,7 +24,7 @@ import java.util.Random;
 public class TestInitGameBoxByConstructor {
 
     public static void main(String[] args) {
-        Resource resource = new ClassPathResource("com/leospiritlee/demo2/bean.xml");
+        Resource resource = new ClassPathResource("com/leospiritlee/demo2/game/bean.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
 
         MedicineBoxByConstructor medicineBoxByConstructor = (MedicineBoxByConstructor) beanFactory.getBean("medicineBoxByConstructor");

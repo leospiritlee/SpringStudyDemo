@@ -1,4 +1,4 @@
-package com.leospiritlee.demo2;
+package com.leospiritlee.demo2.game;
 
 /**
  * @Project: SpringStudyDemo

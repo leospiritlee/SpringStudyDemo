@@ -1,4 +1,4 @@
-package com.leospiritlee.demo2.facade;
+package com.leospiritlee.demo2.game.facade;
 
 public interface ICreat {
 

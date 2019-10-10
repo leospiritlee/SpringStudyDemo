@@ -1,7 +1,7 @@
-package com.leospiritlee.demo2;
+package com.leospiritlee.demo2.game;
 
-import com.leospiritlee.demo2.facade.GameRole;
-import com.leospiritlee.demo2.facade.Goods;
+import com.leospiritlee.demo2.game.facade.GameRole;
+import com.leospiritlee.demo2.game.facade.Goods;
 
 import java.util.List;
 

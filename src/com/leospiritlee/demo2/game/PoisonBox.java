@@ -1,19 +1,19 @@
-package com.leospiritlee.demo2;
+package com.leospiritlee.demo2.game;
 
-import com.leospiritlee.demo2.facade.Box;
-import com.leospiritlee.demo2.facade.Goods;
+import com.leospiritlee.demo2.game.facade.Box;
+import com.leospiritlee.demo2.game.facade.Goods;
 
 import java.util.List;
 import java.util.Random;
 
 /**
  * @Project: SpringStudyDemo
- * @ClassName MedicineBox
- * @description:  药品方块
+ * @ClassName PoisonBox
+ * @description: 毒药方块
  * @author: leospiritlee
- * @create: 2019-10-08 22:13
+ * @create: 2019-10-08 22:18
  **/
-public class MedicineBox implements Box {
+public class PoisonBox implements Box {
 
     private List<Goods> goodsList;
 

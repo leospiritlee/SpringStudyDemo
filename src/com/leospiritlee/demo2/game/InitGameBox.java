@@ -1,7 +1,7 @@
-package com.leospiritlee.demo2;
+package com.leospiritlee.demo2.game;
 
-import com.leospiritlee.demo2.facade.Box;
-import com.leospiritlee.demo2.facade.ICreat;
+import com.leospiritlee.demo2.game.facade.Box;
+import com.leospiritlee.demo2.game.facade.ICreat;
 
 /**
  * @Project: SpringStudyDemo

@@ -1,6 +1,6 @@
-package com.leospiritlee.demo2;
+package com.leospiritlee.demo2.game;
 
-import com.leospiritlee.demo2.facade.Goods;
+import com.leospiritlee.demo2.game.facade.Goods;
 
 /**
  * @Project: SpringStudyDemo
@@ -9,10 +9,15 @@ import com.leospiritlee.demo2.facade.Goods;
  * @author: leospiritlee
  * @create: 2019-10-07 22:04
  **/
-public class Medicine implements Goods {
+public class Medicine_1 implements Goods {
 
     private String name;
     private int blood;
+
+    public Medicine_1(String name, int blood) {
+        this.name = name;
+        this.blood = blood;
+    }
 
     @Override
     public String getName() {

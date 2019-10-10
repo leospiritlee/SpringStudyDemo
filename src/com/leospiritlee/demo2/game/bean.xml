@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        引入xml
+        <import resource="xxx.xml" />
+        <import resource="classpath:xxx.xml" />
+    -->
+
+    <bean id="role" class="com.leospiritlee.demo2.game.Role">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="medicine1" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+    </bean>
+
+    <bean id="medicine2" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="medicine2"/>
+        <property name="blood" value="15"/>
+    </bean>
+
+    <bean id="poison1" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="poison1"/>
+        <property name="blood" value="-10"/>
+    </bean>
+
+    <bean id="poison2" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="poison2"/>
+        <property name="blood" value="-15"/>
+    </bean>
+
+    <bean id="medicineBox" class="com.leospiritlee.demo2.game.MedicineBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="poisonBox" class="com.leospiritlee.demo2.game.PoisonBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="poison1"/>
+                <ref bean="poison2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="nullBox" class="com.leospiritlee.demo2.game.NullBox"/>
+
+    <bean id="medicineBoxByConstructor" class="com.leospiritlee.demo2.game.MedicineBoxByConstructor">
+        <constructor-arg>
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="poisonBoxByConstructor" class="com.leospiritlee.demo2.game.PoisonBoxByConstructor">
+        <constructor-arg>
+            <list>
+                <ref bean="poison1"/>
+                <ref bean="poison2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="medicine1_1" class="com.leospiritlee.demo2.game.Medicine_1">
+        <constructor-arg index="0" value="medicine1"/>
+        <constructor-arg index="1" value="10"/>
+    </bean>
+
+    <bean id="medicine1_2" class="com.leospiritlee.demo2.game.Medicine_1">
+        <constructor-arg value="medicine1"/>
+        <constructor-arg value="10"/>
+    </bean>
+
+    <bean id="medicine1_3" class="com.leospiritlee.demo2.game.Medicine_1">
+        <constructor-arg type="java.lang.String" value="medicine1"/>
+        <constructor-arg type="int" value="10"/>
+    </bean>
+
+    <bean id="medicine2_1" class="com.leospiritlee.demo2.game.Medicine_2">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+        <property name="date">
+            <!--            <ref bean="nowDate"/>-->
+            <ref local="nowDate"/>
+        </property>
+    </bean>
+
+    <bean id="nowDate" class="java.util.Date"/>
+
+    <bean id="publicBean" abstract="true">
+        <property name="date">
+            <bean class="java.util.Date"/>
+        </property>
+    </bean>
+
+    <bean id="medicine2_2" parent="publicBean" class="com.leospiritlee.demo2.game.Medicine_2">
+        <property name="name" value="medicine2"/>
+        <property name="blood" value="15"/>
+    </bean>
+
+    <bean id="medicine2_3" class="com.leospiritlee.demo2.game.Medicine_2">
+        <property name="name" value="medicine3"/>
+        <property name="blood" value="20"/>
+        <property name="date">
+            <bean class="java.util.Date"/>
+        </property>
+    </bean>
+
+    <bean id="roleByCollect" class="com.leospiritlee.demo2.game.RoleByCollect">
+        <property name="stringList">
+            <list>
+                <value>"list111"</value>
+                <value>"list222"</value>
+            </list>
+        </property>
+
+        <property name="goodsList">
+            <list>
+                <ref bean="medicine1" />
+                <ref bean="medicine2" />
+            </list>
+        </property>
+
+        <property name="stringSet">
+            <set>
+                <value>"set111"</value>
+                <value>"set222"</value>
+            </set>
+        </property>
+
+        <property name="goodsSet">
+            <set>
+                <ref bean="medicine1" />
+                <ref bean="medicine2" />
+            </set>
+        </property>
+
+        <property name="stringMap">
+            <map>
+                <entry key="key1">
+                    <value>"map111"</value>
+                </entry>
+                <entry key="key2">
+                    <value>"map222"</value>
+                </entry>
+            </map>
+        </property>
+
+        <property name="goodsMap">
+            <map>
+                <entry key="key1">
+                    <ref bean="medicine1" />
+                </entry>
+                <entry key="key2">
+                    <ref bean="medicine2" />
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>

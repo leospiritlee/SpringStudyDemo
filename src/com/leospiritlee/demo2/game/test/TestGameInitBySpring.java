@@ -1,7 +1,7 @@
-package com.leospiritlee.demo2.test;
+package com.leospiritlee.demo2.game.test;
 
-import com.leospiritlee.demo2.Role;
-import com.leospiritlee.demo2.RolePrintUtil;
+import com.leospiritlee.demo2.game.Role;
+import com.leospiritlee.demo2.game.RolePrintUtil;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;

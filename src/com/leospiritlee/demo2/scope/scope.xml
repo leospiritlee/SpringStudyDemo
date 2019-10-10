@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread" value="com.leospiritlee.demo2.scope.MyScope"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id = "role" class="com.leospiritlee.demo2.game.Role" scope="thread">
+        <property name="name" value="Mary" />
+        <aop:scoped-proxy/>
+    </bean>
+
+
+</beans>

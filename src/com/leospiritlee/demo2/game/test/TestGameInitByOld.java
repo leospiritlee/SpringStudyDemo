@@ -1,10 +1,10 @@
-package com.leospiritlee.demo2.test;
+package com.leospiritlee.demo2.game.test;
 
 import com.google.common.collect.Lists;
-import com.leospiritlee.demo2.facade.Goods;
-import com.leospiritlee.demo2.Medicine;
-import com.leospiritlee.demo2.Role;
-import com.leospiritlee.demo2.RolePrintUtil;
+import com.leospiritlee.demo2.game.facade.Goods;
+import com.leospiritlee.demo2.game.Medicine;
+import com.leospiritlee.demo2.game.Role;
+import com.leospiritlee.demo2.game.RolePrintUtil;
 
 import java.util.List;
 
