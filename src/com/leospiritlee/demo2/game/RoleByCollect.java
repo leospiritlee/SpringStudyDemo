@@ -4,6 +4,7 @@ import com.leospiritlee.demo2.game.facade.Goods;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -27,6 +28,10 @@ public class RoleByCollect {
     private Map<String, String> stringMap;
     //map 注入bean
     private Map<String, Goods> goodsMap;
+    //Properties 注入String
+    private Properties stringProperties;
+    //Properties 注入bean
+    private Medicine medicine;
 
     public List<String> getStringList() {
         return stringList;
@@ -74,5 +79,21 @@ public class RoleByCollect {
 
     public void setGoodsMap(Map<String, Goods> goodsMap) {
         this.goodsMap = goodsMap;
+    }
+
+    public Properties getStringProperties() {
+        return stringProperties;
+    }
+
+    public void setStringProperties(Properties stringProperties) {
+        this.stringProperties = stringProperties;
+    }
+
+    public Medicine getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
     }
 }

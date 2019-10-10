@@ -36,6 +36,9 @@ public class TestRoleByCollect {
         roleByCollect.getGoodsMap().forEach((key, value) ->{
             System.out.println("roleByCollect.getGoodsMap.getObject:" + key + "-" +value.getName() + "-" + value.getBlood() );
         });
+
+        System.out.println("roleByCollect.getStringProperties" + roleByCollect.getStringProperties());
+        System.out.println("roleByCollect.getMedicine" + roleByCollect.getMedicine().getName() + "-" + roleByCollect.getMedicine().getBlood());
     }
 
 }
