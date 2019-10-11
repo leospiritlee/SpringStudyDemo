@@ -1,7 +1,12 @@
 package com.leospiritlee.demo2.game.test;
 
 import com.leospiritlee.demo2.game.BeanFactoryUtil;
+import com.leospiritlee.demo2.game.Role;
 import com.leospiritlee.demo2.game.RoleByCollect;
+import com.leospiritlee.demo2.game.RoleCollectPrintUtil;
+import com.leospiritlee.demo2.game.RolePrintUtil;
+import com.leospiritlee.demo2.game.Role_2;
+import com.leospiritlee.demo2.game.Role_3;
 import org.springframework.beans.factory.BeanFactory;
 
 /**
@@ -17,28 +22,43 @@ public class TestRoleByCollect {
         BeanFactory beanFactory = BeanFactoryUtil.createBeanFactory();
 
         RoleByCollect roleByCollect = (RoleByCollect) beanFactory.getBean("roleByCollect");
+        RoleCollectPrintUtil.printRoleCollect(roleByCollect);
 
-        System.out.println("roleByCollect.getStringList" + roleByCollect.getStringList());
-        System.out.println("roleByCollect.getGoodsList.size" + roleByCollect.getGoodsList().size());
-        roleByCollect.getGoodsList().stream().forEach(medicine->{
-            System.out.println("roleByCollect.getGoodsList.getObject:" + medicine.getName() + "-" + medicine.getBlood());
-        });
-        System.out.println("roleByCollect.getStringSet" + roleByCollect.getStringSet());
-        System.out.println("roleByCollect.getGoodsSet.size" + roleByCollect.getGoodsSet().size());
-        roleByCollect.getGoodsSet().stream().forEach(medicine->{
-            System.out.println("roleByCollect.getGoodsSet.getObject:" + medicine.getName() + "-" + medicine.getBlood());
-        });
-        System.out.println("roleByCollect.getStringMap.size" + roleByCollect.getStringMap().size());
-        roleByCollect.getStringMap().forEach((key, value) ->{
-            System.out.println("roleByCollect.getStringMap.getObject:" + key + "-" +value );
-        });
-        System.out.println("roleByCollect.getGoodsMap.size" + roleByCollect.getGoodsMap().size());
-        roleByCollect.getGoodsMap().forEach((key, value) ->{
-            System.out.println("roleByCollect.getGoodsMap.getObject:" + key + "-" +value.getName() + "-" + value.getBlood() );
-        });
+        System.out.println("----------------------------------------------------------");
 
-        System.out.println("roleByCollect.getStringProperties" + roleByCollect.getStringProperties());
-        System.out.println("roleByCollect.getMedicine" + roleByCollect.getMedicine().getName() + "-" + roleByCollect.getMedicine().getBlood());
+        RoleByCollect roleByCollect_2 = (RoleByCollect) beanFactory.getBean("roleByCollect_2");
+        RoleCollectPrintUtil.printRoleCollect(roleByCollect_2);
+
+        System.out.println("----------------------role---------------------------------");
+
+        Role role = (Role) beanFactory.getBean("role");
+        RolePrintUtil.printRole(role);
+
+        System.out.println("----------------------role_2---------------------------------");
+
+        Role role_2 = (Role) beanFactory.getBean("role_2");
+        RolePrintUtil.printRole(role_2);
+
+        System.out.println("----------------------role_3------------------------------------");
+
+        Role role_3 = (Role) beanFactory.getBean("role_3");
+        RolePrintUtil.printRole(role_3);
+
+        System.out.println("----------------------role_4------------------------------------");
+
+        Role role_4 = (Role) beanFactory.getBean("role_4");
+        RolePrintUtil.printRole(role_4);
+
+        System.out.println("----------------------role2_1------------------------------------");
+
+        Role_2 role2_1 = (Role_2) beanFactory.getBean("role2_1");
+        RolePrintUtil.printRole(role2_1);
+
+        System.out.println("----------------------role3_1------------------------------------");
+
+        Role_3 role3_1 = (Role_3) beanFactory.getBean("role3_1");
+        RolePrintUtil.printRole(role3_1);
+
     }
 
 }

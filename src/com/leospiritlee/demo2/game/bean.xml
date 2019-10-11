@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans default-lazy-init="true" default-init-method="init" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--
         引入xml
@@ -9,7 +9,7 @@
         <import resource="classpath:xxx.xml" />
     -->
 
-    <bean id="role" class="com.leospiritlee.demo2.game.Role">
+    <bean id="role" class="com.leospiritlee.demo2.game.Role" depends-on="medicine1,medicine2">
         <property name="name" value="Mary"/>
         <property name="health" value="100"/>
         <property name="goods">
@@ -186,5 +186,121 @@
         </property>
 
     </bean>
+
+    <util:list id="goodsList">
+        <ref bean="medicine1" />
+        <ref bean="medicine2" />
+    </util:list>
+
+    <util:set id="goodsSet">
+        <ref bean="medicine1" />
+        <ref bean="medicine2" />
+    </util:set>
+
+    <util:map id="goodsMap">
+        <entry key="key1">
+            <ref bean="medicine1" />
+        </entry>
+        <entry key="key2">
+            <ref bean="medicine2" />
+        </entry>
+    </util:map>
+
+    <util:properties id="stringProperties">
+        <prop key="key1">medicine1</prop>
+        <prop key="key2">medicine2</prop>
+    </util:properties>
+
+    <bean id="roleByCollect_2" class="com.leospiritlee.demo2.game.RoleByCollect">
+        <property name="stringList">
+            <list>
+                <value>"list111"</value>
+                <value>"list222"</value>
+            </list>
+        </property>
+
+        <property name="goodsList" ref="goodsList"/>
+
+        <property name="stringSet">
+            <set>
+                <value>"set111"</value>
+                <value>"set222"</value>
+            </set>
+        </property>
+
+        <property name="goodsSet" ref="goodsSet" />
+
+        <property name="stringMap">
+            <map>
+                <entry key="key1">
+                    <value>"map111"</value>
+                </entry>
+                <entry key="key2">
+                    <value>"map222"</value>
+                </entry>
+            </map>
+        </property>
+
+        <property name="goodsMap" ref="goodsMap" />
+
+        <property name="stringProperties" ref="stringProperties" />
+
+        <property name="medicine">
+            <ref bean="medicine1" />
+        </property>
+
+    </bean>
+
+
+    <bean id="role_2" class="com.leospiritlee.demo2.game.Role">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+               <value>null</value> <!-- 对象 == "null" -->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="role_3" class="com.leospiritlee.demo2.game.Role">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+                <null/> <!-- 对象 == null -->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="role_4" class="com.leospiritlee.demo2.game.Role" lazy-init="true">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="role2_1" class="com.leospiritlee.demo2.game.Role_2" lazy-init="true" init-method="init">
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="role3_1" class="com.leospiritlee.demo2.game.Role_3" lazy-init="true">
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
 
 </beans>
