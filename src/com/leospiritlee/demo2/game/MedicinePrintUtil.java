@@ -28,4 +28,17 @@ public class MedicinePrintUtil {
                  ",获取时间:" + medicine.getDate()
         );
     }
+
+
+    public static void printMedicine_3(Medicine_3 medicine){
+        if(null == medicine){
+            return;
+        }
+
+        System.out.println(
+                "药品name:" + medicine.getName() +
+                        ",药品blood:" + medicine.getBlood() +
+                        ",获取时间:" + medicine.getDate()
+        );
+    }
 }

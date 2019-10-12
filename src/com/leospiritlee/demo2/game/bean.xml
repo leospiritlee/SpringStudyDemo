@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans default-lazy-init="true" default-init-method="init" xmlns="http://www.springframework.org/schema/beans"
+<beans default-lazy-init="true" default-init-method="init" default-destroy-method="destroy" xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
@@ -97,12 +97,11 @@
         <property name="name" value="medicine1"/>
         <property name="blood" value="10"/>
         <property name="date">
-            <!--            <ref bean="nowDate"/>-->
-            <ref local="nowDate"/>
+            <!--            <ref bean="date"/>-->
+            <ref local="date"/>
         </property>
     </bean>
 
-    <bean id="nowDate" class="java.util.Date"/>
 
     <bean id="publicBean" abstract="true">
         <property name="date">
@@ -300,6 +299,51 @@
                 <ref bean="medicine2"/>
             </list>
         </property>
+    </bean>
+
+    <bean id="role4" class="com.leospiritlee.demo2.game.Role_4"  init-method="init" destroy-method="destroy">
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="role5" class="com.leospiritlee.demo2.game.Role_5">
+        <property name="name" value="Mary"/>
+        <property name="health" value="100"/>
+        <property name="goods">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="date" class="java.util.Date" />
+    <!--autowire byName -->
+    <bean id="medicine2_5" class="com.leospiritlee.demo2.game.Medicine_2" autowire="byName">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+    </bean>
+
+    <bean id="medicine2_6" class="com.leospiritlee.demo2.game.Medicine_2" autowire="byType">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+    </bean>
+
+    <bean id="medicine3_1" class="com.leospiritlee.demo2.game.Medicine_3" >
+        <constructor-arg>
+            <value>medicine</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>100</value>
+        </constructor-arg>
+        <constructor-arg>
+           <ref bean="date"/>
+        </constructor-arg>
     </bean>
 
 
