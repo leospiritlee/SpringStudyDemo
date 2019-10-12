@@ -13,6 +13,10 @@ import com.leospiritlee.demo2.game.facade.Goods;
 public class RolePrintUtil {
 
     public static void printRole(GameRole role){
+        if(null ==role){
+            return;
+        }
+
         System.out.println("游戏人物名称为:" + role.getName() + ", 生命值是:" + role.getHealth());
         if(role.getGoods() != null && role.getGoods().size() > 0){
 

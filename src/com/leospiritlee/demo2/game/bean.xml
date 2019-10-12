@@ -9,7 +9,7 @@
         <import resource="classpath:xxx.xml" />
     -->
 
-    <bean id="role" class="com.leospiritlee.demo2.game.Role" depends-on="medicine1,medicine2">
+    <bean id="role" class="com.leospiritlee.demo2.game.Role" depends-on="medicine1,medicine2" dependency-check="simple">
         <property name="name" value="Mary"/>
         <property name="health" value="100"/>
         <property name="goods">
@@ -345,6 +345,8 @@
            <ref bean="date"/>
         </constructor-arg>
     </bean>
+
+    <bean id="healthModifier" class="com.leospiritlee.demo2.game.HealthModifier" />
 
 
 </beans>
