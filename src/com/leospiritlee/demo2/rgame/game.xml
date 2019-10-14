@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "role" class="com.leospiritlee.demo2.rgame.Role">
+        <property name="name" value="Mary" />
+        <property name="health" value="100" />
+        <property name="goods">
+            <list>
+                <ref bean="medicine1" />
+                <ref bean="medicine2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="medicine1" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="medicine1"/>
+        <property name="blood" value="10"/>
+    </bean>
+
+    <bean id="medicine2" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="medicine2"/>
+        <property name="blood" value="15"/>
+    </bean>
+
+    <bean id="scene" class="com.leospiritlee.demo2.rgame.Scene">
+        <property name="count" value="80" />
+    </bean>
+
+    <bean id="poison1" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="poison1"/>
+        <property name="blood" value="-10"/>
+    </bean>
+
+    <bean id="poison2" class="com.leospiritlee.demo2.game.Medicine">
+        <property name="name" value="poison2"/>
+        <property name="blood" value="-15"/>
+    </bean>
+
+    <bean id="medicineBox" class="com.leospiritlee.demo2.rgame.MedicineBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="medicine1"/>
+                <ref bean="medicine2"/>
+            </list>
+        </property>
+        <property name="randomXY">
+            <ref bean="randomXY"/>
+        </property>
+    </bean>
+
+    <bean id="poisonBox" class="com.leospiritlee.demo2.rgame.PoisonBox">
+        <property name="goodsList">
+            <list>
+                <ref bean="poison1"/>
+                <ref bean="poison2"/>
+            </list>
+        </property>
+        <property name="randomXY">
+            <ref bean="randomXY"/>
+        </property>
+    </bean>
+
+    <bean id="nullBox" class="com.leospiritlee.demo2.rgame.NullBox">
+        <property name="randomXY">
+            <ref bean="randomXY"/>
+        </property>
+    </bean>
+
+    <bean id="randomXY" class="com.leospiritlee.demo2.rgame.RandomXY">
+        <property name="x">
+            <value>100</value>
+        </property>
+
+        <property name="y">
+            <value>5</value>
+        </property>
+    </bean>
+
+</beans>

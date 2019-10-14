@@ -349,4 +349,12 @@
     <bean id="healthModifier" class="com.leospiritlee.demo2.game.HealthModifier" />
 
 
+    <bean id="role6_1" class="com.leospiritlee.demo2.game.Role_6">
+        <property name="name" value="Mary"/>
+    </bean>
+
+    <bean id="role6_2" class="com.leospiritlee.demo2.game.Role_6">
+        <property name="name" value="date"/>
+    </bean>
+
 </beans>
