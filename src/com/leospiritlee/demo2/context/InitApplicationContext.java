@@ -44,7 +44,7 @@ public class InitApplicationContext {
 
     /**
      *  bean xml 路径 3
-     *      classPath*: bean.xml
+     *      classpath*: bean.xml
      * @param beanXmlPath
      */
     private void initApplicationContextByClassPath_2(String beanXmlPath){
@@ -53,7 +53,7 @@ public class InitApplicationContext {
 
     /**
      *  bean xml 路径 3
-     *      classPath: bean.xml
+     *      classpath: bean.xml
      * @param beanXmlPath
      */
     private void initApplicationContextByClassPath_3(String beanXmlPath){
