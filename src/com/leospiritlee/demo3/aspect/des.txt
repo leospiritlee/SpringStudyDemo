@@ -1,0 +1,22 @@
+<aop:aspect id="myAspect" ref="aspectBean">
+    <aop:pointcut id="somePointcut" expression="execution(*Component.*(..)" />
+    <aop:after-returning pointcut-ref="log" method="" />
+</aop:aspect>
+
+
+连接点 join point
+
+方法调用 method call - 方法被调用时
+方法执行 method execution - 方法体的内容被执行的时候
+构造函数调用 constructor call - 构造函数被调用时
+构造函数执行 constructor execution - 构造函数的内容被执行的时候
+静态初始化部分执行 static initializer execution - 类中的静态部分内容初始化时
+对象预初始化 object pre-initialization - 主要是指执行构造函数中的 this() 以及super()的时候
+对象初始化 object initialization - 在初始化一个类的时候
+属性引用 field reference - 引用属性值时
+属性设值 field set - 设值属性值时
+异常执行 handler execution - 异常执行时
+通知执行 advice execution - 当一个aop 通知（增强） 执行时
+
+切入点 pointcuts
+
