@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="beforeAdvice" class="com.leospiritlee.demo3.advice.AdviceBeforeComponent" />
+    <bean id="component" class="com.leospiritlee.demo3.advice.IComponentImpl" />
+
+    <bean id="componentAdvice" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!-- 指定匹配name 支持通配符 * -->
+<!--        <property name="mappedName" value="business*" />-->
+
+        <!-- 指定方法列表 -->
+        <property name="mappedNames">
+            <list>
+                <value>business1</value>
+                <value>business3</value>
+            </list>
+        </property>
+
+        <property name="advice" ref="beforeAdvice" />
+    </bean>
+
+    <bean id="regExpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="pattern" value=".*2" />
+        <property name="advice" ref="beforeAdvice" />
+    </bean>
+
+    <bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+
+        <!-- 指定方法列表 -->
+        <property name="mappedNames">
+            <list>
+                <value>business1</value>
+                <value>business3</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="expressionCutBean" class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
+        <property name="expression" value="execution(void com.leospiritlee.demo3.advice.IComponent.business*(..)" ></property>
+    </bean>
+
+    <bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <constructor-arg ref="beforeAdvice"/>
+        <constructor-arg ref="pointcutBean" />
+    </bean>
+
+
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="com.leospiritlee.demo3.advice.IComponent"/>
+        <property name="target" ref="component"/>
+        <property name="interceptorNames">
+            <list>
+                <!--                <value>componentAdvice</value>-->
+                <!--                <value>regExpAdvisor</value>-->
+                <value>defaultAdvisor</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
