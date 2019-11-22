@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <bean name="job" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.leospiritlee.demo4.MyJob" />
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="timeOut" value="5" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="job"/>
+        </property>
+        <property name="cronExpression">
+            <value>0/5 * * * * ?</value>
+        </property>
+    </bean>
+
+
+    <bean id="job_1" class="com.leospiritlee.demo4.MyJob_1" />
+
+    <bean id="jobDetail_1" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="job_1"/>
+        <property name="targetMethod" value="doJob" />
+    </bean>
+
+    <bean id="trigger_1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="jobDetail_1"/>
+        </property>
+        <property name="cronExpression">
+            <value>0/15 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="trigger_1" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="job_2" class="com.leospiritlee.demo4.MyJob_2" />
+    <bean id="scheduledTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="timerTask" ref="job_2" />
+        <property name="period" value="5000" />
+        <property name="delay" value="3000" />
+    </bean>
+
+    <bean id="timerFactoryBean" class="org.springframework.scheduling.timer.TimerFactoryBean">
+        <property name="scheduledTimerTasks">
+            <list>
+                <ref bean="scheduledTimerTask" />
+            </list>
+        </property>
+    </bean>
+
+</beans>
